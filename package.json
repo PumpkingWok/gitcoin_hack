@@ -1,0 +1,21 @@
+{
+  "name": "ZeroWasteNet",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "start-react": "cd client && npm start"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "^4.16.4",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "node-sass-middleware": "0.11.0",
+    "nodemon": "^1.19.1",
+    "truffle-contract": "^4.0.21"
+  }
+}

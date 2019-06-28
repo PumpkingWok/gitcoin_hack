@@ -1,0 +1,13 @@
+.campaign__list {
+    height: 100%;
+    overflow-y: scroll;
+    padding: 3em;
+    width: 100%;
+    border-radius: 10px 10px;
+    position: absolute;
+    z-index: 1;
+    scroll-snap-type: y mandatory;
+    scroll-padding: 100px;
+    scroll-snap-align: center;
+    padding-bottom: 100px;
+}
