@@ -1,0 +1,16 @@
+.scanqr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.scanqr img {
+    height: 250px;
+    width: 250px;
+}
+.scanqr p {
+    font-size: 2.4em;
+    margin: 1em;
+    text-align: center;
+}

@@ -1,0 +1,166 @@
+.profile {
+    display: flex;
+    flex-direction: column;    
+}
+.profile__avatar {
+    background: #00bdff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    height: 275px;
+    padding: 30px 0;
+}
+.profile__avatar button {
+    border: none;
+}
+.profile__avatar h2 {
+    font-size: 2em;
+}
+.profile__avatar img {
+    border: 5px solid #fff;
+    background: #fff;
+    border-radius: 50%;
+    width: 115px;
+    height: 115px;
+}
+.profile__points {
+    height: 30px;
+    width: 100px;
+    border-radius: 15px;
+    background: #fff;
+}
+.profile__campaigns {
+    background: rgb(246, 243, 243);
+}
+.profile__campaigns h2 {
+    text-align: center;
+    padding: 15px 0;
+}
+.profile__campaign {
+    background: #fff;
+    border-radius: 25px;
+    margin: 15px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "info"
+        "tracker";
+}
+.profile__campaign-info {
+    grid-area: info;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 100%;
+    grid-template-areas: 
+        "date body dist";
+}
+.profile__campaign-date {
+    grid-area: date;
+    font-size: 2.4em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.profile__campaign-date p {
+    margin: 10px;
+}
+.profile__campaign-body {
+    grid-area: body;
+}
+.profile__campaign-body h3 {
+    font-size: 1.6em;
+}
+.profile__campaign-info p {
+    font-size: 1.2em;
+}
+.profile__campaign-dist {
+    grid-area: dist;
+    text-align: right;
+}
+.profile__tracker {
+    grid-area: tracker;
+}
+
+.track {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    justify-content: space-evenly;
+}
+.ptracker__cube {
+    height: 25px;
+    width: 25px;
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.profile__badges {
+    background: rgb(246, 243, 243);
+    padding-bottom: 150px;
+}
+.profile__badges h2 {
+    text-align: center;
+    padding: 15px 0;
+}
+.badges {
+    height: 250px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.badge__points {
+    border-radius: 15px;
+    height: 75px;
+    width: 75px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    display: flex;
+    font-size: 3em;
+    color: #fff;
+    font-weight: 800;
+}
+.one {
+    background: #aaa;
+}
+.two {
+    background: rgb(55, 185, 144);
+}
+.three {
+    background: rgb(189, 147, 228);
+}
+.four {
+    background: rgb(195, 70, 112);
+}
+.five {
+    background: rgb(113, 191, 246);
+}
+.six {
+    background: rgb(243, 169, 71);
+}
+.seven {
+    background: rgb(130, 240, 152);
+}
+.eight {
+    background: rgb(233, 214, 108);
+}
+.badge__type {
+    text-align: center;
+}
+/** MEDIA QUERIES **/
+@media (min-width: 769px) {
+    .ptracker__cube {
+        height: 25px;
+        width: 8em;
+        border-radius: 5px;
+    }
+    .profile__campaign-body {
+        text-align: center;
+    }
+}

@@ -1,0 +1,9 @@
+.loginform {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 15%;
+}
+.loginform input {
+    margin: 1em;
+}

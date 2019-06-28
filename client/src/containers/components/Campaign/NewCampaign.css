@@ -1,0 +1,15 @@
+.hero {
+  background: #00bdff;
+  color: white;
+  height: 250px;
+  padding: 8em 4em;
+}
+.hero p {
+  font-size: 2em;
+}
+.greeting {
+  font-size: 3em;
+  font-weight: 500;
+  padding: 5;
+  margin: 0;
+}

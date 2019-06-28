@@ -1,0 +1,28 @@
+.searchbar {
+  /* position: relative; */
+}
+.searchbaricon {
+  position: absolute;
+  top: 243px;
+  left: 30px;
+  /* height: 600px; */
+  width: 100px;
+  z-index: 3;
+}
+.searchbar input {
+  position: absolute;
+  z-index: 2;
+  background: white;
+  height: 50px;
+  width: 90%;
+  box-shadow: 5px 5px 10px #ccc;
+  border-radius: 50px;
+  padding: 15px;
+  top: 230px;
+  margin: 0 1.5em;
+  text-indent: 30px;
+}
+.searchbar input:focus {
+  outline: none;
+  border: none;
+}

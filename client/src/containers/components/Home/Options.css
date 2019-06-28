@@ -1,0 +1,80 @@
+.flex1 .flex2 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+img {
+  padding: 1px;
+  width: 25%;
+  height: auto;
+  color: #444;
+}
+.hero {
+  background: #00bdff;
+  color: white;
+  height: 250px;
+  padding: 8em 4em;
+}
+.hero p {
+  font-size: 2em;
+}
+.greeting {
+  font-size: 3em;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+}
+.home__options {
+  padding: 75px 0 0;
+}
+.options {
+  height: 250px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.badge__points {
+  border-radius: 15px;
+  height: 75px;
+  width: 75px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  display: flex;
+  font-size: 3em;
+  color: #fff;
+  font-weight: 800;
+}
+.calltoaction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.calltoaction button {
+  cursor: pointer;
+}
+.newsfeed {
+  padding-bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+hr {
+  color: #eee;
+  line-height: 5%;
+  margin: 2em;
+}
+.news {
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px 3px #ccc;
+  width: 80%;
+  padding: 2em;
+  font-size: 1.6em;
+  margin: 1.2em;
+}
+.options a {
+  text-decoration: none;
+  color: #333;
+}
