@@ -13,3 +13,9 @@
   padding: 5;
   margin: 0;
 }
+
+.form {
+  border: 5px solid #fff;
+  overflow: auto;
+  margin-bottom: 80px;
+}
