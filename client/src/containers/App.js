@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Splash from "./components/Splash/Splash";
@@ -22,16 +22,18 @@ class App extends Component {
 
         <Router>
             <div className="app">
-                <Route exact path="/" component={Home} />
-                <Route exact path="/welcome" component={Splash} />
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/welcome" component={Splash} />
 
-                <Route exact path="/profile" component={Profile} />
-                <Route exact path="/notifications" component={Notifications} />
-                <Route exact path="/education" component={Education} />
-                <Route exact path="/settings" component={Settings} />
-                <Route exact path="/campaign" component={Campaign} />
-                <Route exact path="/new-campaign" component={NewCampaign} />
-                <Route exact path="/camera-custom" component={CameraCustom} />
+                    <Route exact path="/profile" component={Profile} />
+                    <Route exact path="/notifications" component={Notifications} />
+                    <Route exact path="/education" component={Education} />
+                    <Route exact path="/settings" component={Settings} />
+                    <Route exact path="/campaign" component={Campaign} />
+                    <Route exact path="/new-campaign" component={NewCampaign} />
+                    <Route exact path="/camera-custom" component={CameraCustom} />
+                </Switch>
                 <Header />
             </div>
         </Router>

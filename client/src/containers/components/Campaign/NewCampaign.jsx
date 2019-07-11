@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import { MetaMaskButton, Button, Field, Form, Select, Slider } from 'rimble-ui';
 import './NewCampaign.css';
 import axios from 'axios';
@@ -79,6 +80,7 @@ class NewCampaignC extends Component {
             startDate: '',
             endDate: '',
             invalidData: true,
+            redirect: false,
         };
         this.pinataURL = 'https://api.pinata.cloud/pinning/pinJSONToIPFS';
         this.pinataAPIKey = '8ded24d796a7aa0afdde';
@@ -104,7 +106,7 @@ class NewCampaignC extends Component {
         this.setState({[e.target.name]: e.target.value});
     }
 
-    onSubmit(e) {
+    onSubmit = (e) => {
         this.JSONBody = this.state;
         axios.post(this.pinataURL,
                     this.JSONBody,
@@ -114,11 +116,10 @@ class NewCampaignC extends Component {
                             'pinata_secret_api_key': this.pinataSecretAPIKey
                         }
                     })
-        .then(function (response) {
-            console.log(response.data)
-            // this.context.history.push('/profile')
+        .then((response) => {
+            this.setState({ redirect: true })
         })
-        .catch(function (error) {
+        .catch((error) => {
             console.log(error)
         });
     }
@@ -128,6 +129,10 @@ class NewCampaignC extends Component {
     }
 
     render() {
+        const { redirect } = this.state;
+        if(redirect) {
+            return(<Redirect to='/profile'/>);
+        }
         return (
             <div>
             <div className='hero'>
