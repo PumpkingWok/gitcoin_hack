@@ -4,8 +4,11 @@ import Header from '../Header/Header';
 import avatar from './kevin.png';
 
 class Profile extends Component {
-  render() {
-    return (
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return (
         <div className='profile'>
           <div className='profile__avatar'>
             <img src={avatar}/>

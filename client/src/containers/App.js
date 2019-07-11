@@ -15,25 +15,26 @@ import CameraCustom from "./components/Camera/camera";
 import Home from "./components/Home/Options";
 
 
-
 class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div className="app">
-          <Route exact path="/" component={Home} />
-          <Route exact path="/welcome" component={Splash} />
 
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/notifications" component={Notifications} />
-          <Route exact path="/education" component={Education} />
-          <Route exact path="/settings" component={Settings} />
-          <Route exact path="/campaign" component={Campaign} />
-          <Route exact path="/new-campaign" component={NewCampaign} />
-          <Route exact path="/camera-custom" component={CameraCustom} />
-          <Header />
-        </div>
-      </Router>
+    render() {
+        return (
+
+        <Router>
+            <div className="app">
+                <Route exact path="/" component={Home} />
+                <Route exact path="/welcome" component={Splash} />
+
+                <Route exact path="/profile" component={Profile} />
+                <Route exact path="/notifications" component={Notifications} />
+                <Route exact path="/education" component={Education} />
+                <Route exact path="/settings" component={Settings} />
+                <Route exact path="/campaign" component={Campaign} />
+                <Route exact path="/new-campaign" component={NewCampaign} />
+                <Route exact path="/camera-custom" component={CameraCustom} />
+                <Header />
+            </div>
+        </Router>
     );
   }
 }

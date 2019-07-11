@@ -1,9 +1,73 @@
 import React, { Component } from 'react';
 import { MetaMaskButton, Button, Field, Form, Select, Slider } from 'rimble-ui';
 import './NewCampaign.css';
-import { Connectors } from 'web3-react';
+import axios from 'axios';
+import Web3Provider, { useWeb3Context, Web3Consumer, Connectors } from 'web3-react';
+import { ethers } from "ethers";
 
-class NewCampaign extends Component {
+const { InjectedConnector, NetworkOnlyConnector } = Connectors
+const MetaMask = new InjectedConnector({ supportedNetworks: [1, 4] })
+const connectors = { MetaMask }
+
+function NewCampaign() {
+    return (
+    <Web3Provider connectors={connectors} libraryName="ethers.js">
+      <div className="App">
+        <Web3Component />
+      </div>
+    </Web3Provider>
+    );
+}
+
+function Web3Component() {
+  const context = useWeb3Context();
+
+  console.log(context);
+
+  if (context.error) {
+    console.error("Error!");
+  }
+
+  const [transactionHash, setTransactionHash] = React.useState();
+
+  function sendTransaction() {
+    const signer = context.library.getSigner();
+
+    signer
+      .sendTransaction({
+        to: ethers.constants.AddressZero,
+        value: ethers.utils.bigNumberify("0")
+      })
+      .then(({ hash }) => {
+        setTransactionHash(hash);
+      });
+  }
+
+  return (
+      <div>
+        <MetaMaskButton.Outline
+            onClick={() => context.setConnector('MetaMask')}>
+            Connect With MetaMask
+        </MetaMaskButton.Outline>
+        <NewCampaignC />
+        <Web3ConsumerComponent />
+      </div>
+  );
+}
+
+function Web3ConsumerComponent() {
+  return (
+    <Web3Consumer>
+      {context => {
+        const { active, connectorName, account, networkId } = context;
+
+        return (active);
+      }}
+    </Web3Consumer>
+  );
+}
+
+class NewCampaignC extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,6 +80,10 @@ class NewCampaign extends Component {
             endDate: '',
             invalidData: true,
         };
+        this.pinataURL = 'https://api.pinata.cloud/pinning/pinJSONToIPFS';
+        this.pinataAPIKey = '8ded24d796a7aa0afdde';
+        this.pinataSecretAPIKey = 'a7bc4931b0f61b3467466a73df13a01f72988bcc90cb2303e8421549ed15579d'
+        this.JSONBody = {};
         this.handleChange = this.handleChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.isFormValid = this.isFormValid.bind(this);
@@ -29,7 +97,6 @@ class NewCampaign extends Component {
                                 && nextState.reward
                                 && nextState.startDate
                                 && nextState.endDate)
-        console.log(this.state);
     }
 
 
@@ -38,7 +105,22 @@ class NewCampaign extends Component {
     }
 
     onSubmit(e) {
-        console.log(this.state);
+        this.JSONBody = this.state;
+        axios.post(this.pinataURL,
+                    this.JSONBody,
+                    {
+                        headers: {
+                            'pinata_api_key': this.pinataAPIKey,
+                            'pinata_secret_api_key': this.pinataSecretAPIKey
+                        }
+                    })
+        .then(function (response) {
+            console.log(response.data)
+            // this.context.history.push('/profile')
+        })
+        .catch(function (error) {
+            console.log(error)
+        });
     }
 
     isFormValid(e) {
@@ -51,9 +133,6 @@ class NewCampaign extends Component {
             <div className='hero'>
                 <p>Hello Kevin,</p>
                 <h2 className='greeting'>New Campaign</h2>
-                <MetaMaskButton.Outline>
-                    Connect With MetaMask
-                </MetaMaskButton.Outline>
             </div>
             <div className='form'>
                 <Field label='Choose your color bag'>
